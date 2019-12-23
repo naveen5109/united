@@ -1,0 +1,25 @@
+#%RAML 0.8
+version: 1.0.0
+title: united
+baseUri: http://localhost:8081/api
+/unitedflightsbydestination: 
+ get: 
+  queryParameters: 
+   destination:
+    required: true
+    minLength: 3
+    maxLength: 3
+    enum: [SFO,LAX,CLF,PDF]
+  responses: 
+   200: 
+    body: 
+     application/json: 
+      example: !include examples/unitedflightsbydestination.json
+      
+/listofunitedflights: 
+ get: 
+  responses: 
+   200: 
+    body: 
+     application/json: 
+      example:  !include examples/listofunitedflights.json
